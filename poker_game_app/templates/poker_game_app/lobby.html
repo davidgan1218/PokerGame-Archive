@@ -1,0 +1,7 @@
+{% extends "poker_game_app/base.html" %}
+
+{% block content %}
+    <p> Waiting for more players....</p>
+    <p><a href="{% url 'poker_game_app:in_game' player.id%} ">Click here to start game.</a> </p>
+    
+{% endblock content %}

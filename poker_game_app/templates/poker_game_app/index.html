@@ -1,0 +1,16 @@
+{% extends "poker_game_app/base.html" %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+
+        <p>Welcome to PokerGame {{player.user.username }}!!!</p>
+
+        <p>You have $5000 chips! </p>
+
+        <p> <a href="{% url 'poker_game_app:lobby' %}">Join a game</a> </p>
+    {% else %}
+
+        <p>Welcome to PokerGame!!!</p>
+    {% endif %}
+
+{% endblock content %}

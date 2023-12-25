@@ -1,0 +1,12 @@
+{% extends "poker_game_app/base.html" %}
+
+{% block content %}
+    <form method="post" action="{% url 'poker_game_app:bet' player.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Bet</button>
+
+    </form>
+
+{% endblock content %}
+
