@@ -14,4 +14,7 @@ urlpatterns = [
     path('bet/<int:player_id>/', views.bet, name='bet'),
     path('fold/<int:player_id>/', views.fold, name='fold'),
     path('river_cards/<int:player_id>', views.river_cards, name="river_cards"),
+    path('turn_card1<int:player_id>', views.turn_card1, name="turn_card1"),
+    path('turn_card2<int:player_id>', views.turn_card2, name="turn_card2"),
+    path('reveal_hand/<int:player_id>', views.reveal_hand, name="reveal_hand"),
 ]

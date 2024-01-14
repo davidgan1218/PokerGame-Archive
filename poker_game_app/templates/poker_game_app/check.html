@@ -1,8 +1,13 @@
 {% extends "poker_game_app/base.html" %}
 
 {% block content %}
+    {% if game.status == 1 %}
+        <p> <a href="{% url 'poker_game_app:river_cards' player.id%}">See river cards</a> <p>
+    {% elif game.status == 2 %}
+        <p> <a href="{% url 'poker_game_app:turn_card1' player.id%}">See first turn card!</a> <p>
+    {% else %}
+        <p> <a href="{% url 'poker_game_app:turn_card2' player.id%}">See second turn card!</a> <p>
+    {% endif %}
 
-
-    <p> <a href="{% url 'poker_game_app:river_cards' player.id%}">See river cards</a> <p>
 
 {% endblock content %}

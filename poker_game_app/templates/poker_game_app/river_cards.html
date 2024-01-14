@@ -7,4 +7,8 @@
 
     <p>River Cards: {{ game.river_card1 }} {{ game.river_card2 }} {{ game.river_card3 }} </p>
 
+    <p><a href="{% url 'poker_game_app:check' player.id %}">Check</a> </p>
+    <p><a href="{% url 'poker_game_app:bet' player.id %}">Bet</a> </p>
+    <p><a href="{% url 'poker_game_app:fold' player.id %}">Fold</a> </p>
+
 {% endblock content %}

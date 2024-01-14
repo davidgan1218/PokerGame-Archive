@@ -1,8 +1,11 @@
 {% extends "poker_game_app/base.html" %}
 
 {% block content %}
-
+    <p>Pot: {{ game.pot }} <p>
+    <p>My Chips: {{ player.chips }}</p>
     <p>My Cards: {{ player.card1 }}, {{ player.card2 }}</p>
+
+    <p>River Cards: {{ game.river_card1 }} {{ game.river_card2 }} {{ game.river_card3 }} {{ game.river_card4 }} </p>
 
     <p><a href="{% url 'poker_game_app:check' player.id %}">Check</a> </p>
     <p><a href="{% url 'poker_game_app:bet' player.id %}">Bet</a> </p>
