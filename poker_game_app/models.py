@@ -23,11 +23,13 @@ class Player(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     game = models.ForeignKey(Game, null=True, on_delete=models.CASCADE)
-    hand = models.CharField(max_length = 50, default = "")
+
     chips = models.IntegerField(default=5000)
     point = models.IntegerField(default=0)
-    card1 = models.CharField(max_length=10, null = True)
+    card1 = models.CharField(max_length=10, null=True)
     card2 = models.CharField(max_length=10, null=True)
     status = models.IntegerField(default=0)
     bet = models.IntegerField(default=0)
+    hand_text = models.CharField(max_length = 50, null=True)
+    hand_num = models.IntegerField(null=True)
 

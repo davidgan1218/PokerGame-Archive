@@ -5,8 +5,10 @@
         <p> <a href="{% url 'poker_game_app:river_cards' player.id%}">See river cards</a> <p>
     {% elif game.status == 2 %}
         <p> <a href="{% url 'poker_game_app:turn_card1' player.id%}">See first turn card!</a> <p>
+    {% elif game.status == 3 %}
+        <p><a href ="{% url 'poker_game_app:turn_card2' player.id%}">See second turn card!</a></p>
     {% else %}
-        <p> <a href="{% url 'poker_game_app:turn_card2' player.id%}">See second turn card!</a> <p>
+        <p> <a href="{% url 'poker_game_app:reveal_hand' player.id%}">Reveal Hand</a> <p>
     {% endif %}
 
 

@@ -6,13 +6,9 @@
     <p>My Cards: {{ player.card1 }}, {{ player.card2 }}</p>
 
     <p>River Cards: {{ game.river_card1 }} {{ game.river_card2 }} {{ game.river_card3 }} {{ game.river_card4 }} {{ game.river_card5 }}</p>
-    {% if game.status == 3 %}
-        <p><a href="{% url 'poker_game_app:check' player.id %}">Check</a> </p>
-        <p><a href="{% url 'poker_game_app:bet' player.id %}">Bet</a> </p>
-        <p><a href="{% url 'poker_game_app:fold' player.id %}">Fold</a> </p>
-    {% else %}
-        <p><a href="{% url 'poker_game_app:reveal_hand' player.id %}">Reveal Hand</a></p>
-    {% endif %}
-        
+
+    <p><a href="{% url 'poker_game_app:check' player.id %}">Check</a> </p>
+    <p><a href="{% url 'poker_game_app:bet' player.id %}">Bet</a> </p>
+    <p><a href="{% url 'poker_game_app:fold' player.id %}">Fold</a> </p>
 
 {% endblock content %}
