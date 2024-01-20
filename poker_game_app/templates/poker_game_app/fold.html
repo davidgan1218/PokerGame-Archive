@@ -1,6 +1,6 @@
 {% extends "poker_game_app/base.html" %}
 
 {% block content %}
-    <p>FOLD<p>
+    <p><a href="{% url 'poker_game_app:in_game' player.id%}"> Start new round.<p>
 
 {% endblock content %}

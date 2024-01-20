@@ -30,6 +30,6 @@ class Player(models.Model):
     card2 = models.CharField(max_length=10, null=True)
     status = models.IntegerField(default=0)
     bet = models.IntegerField(default=0)
-    hand_text = models.CharField(max_length = 50, null=True)
-    hand_num = models.IntegerField(null=True)
+    hand_text = models.CharField(max_length = 50, null=True) # textual representation of hand (eg. "full house")
+    hand_num = models.IntegerField(null=True) # numerical representation of text
 

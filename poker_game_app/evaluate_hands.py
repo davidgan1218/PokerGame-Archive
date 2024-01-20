@@ -1,4 +1,5 @@
 from collections import Counter
+import itertools
 
 def Most_Common(lst):
     data = Counter(lst)
@@ -135,3 +136,75 @@ def get_high(h):
 #     return 'LEFT'
 
 #   return "TIE"
+
+
+
+def get_hands(cards):
+    l = list(itertools.combinations(cards, 5))
+    r = [list(a) for a in l]
+    return r
+
+def evaluate(hand):
+      if is_royal_flush(hand):  
+           return 10, 14, hand 
+      elif is_seq(hand) and is_flush(hand) :  #straight flush
+           _, s_flush = is_seq(hand)
+           return 9, s_flush, hand  
+      elif is_fourofakind(hand):  
+           _, fourofakind = is_fourofakind(hand)  
+           return 8, fourofakind, hand
+      elif is_fullhouse(hand): 
+           _, fullhouse = is_fullhouse(hand) 
+           return 7, fullhouse, hand
+      elif is_flush(hand):  
+           _, flush = is_flush(hand)  
+           return 6, flush, hand  
+      elif is_seq(hand):  #straight
+           _, seq = is_seq(hand)  
+           return 5, seq, hand 
+      elif is_threeofakind(hand):  
+           _, threeofakind = is_threeofakind(hand) 
+           return 4, threeofakind, hand
+      elif is_twopair(hand):  
+           _, two_pair = is_twopair(hand)  
+           return 3, two_pair, hand 
+      elif is_pair(hand):  
+           _, pair = is_pair(hand)  
+           return 2, pair, hand   
+      else:  
+           return 1, get_high(hand), hand 
+
+def translate(num):
+    if num == 10:
+        return "Royal Flush"
+    elif num == 9:
+        return "Straight Flush"
+    elif num == 8:
+        return "Four of A Kind"
+    elif num == 7:
+        return "Full House"
+    elif num == 6:
+        return "Flush"
+    elif num == 5:
+        return "Straight"
+    elif num == 4:
+        return "Three of A Kind"
+    elif num == 3:
+        return "Two pair"
+    elif num == 2:
+        return "Pair"
+    else:
+        return "High Card"
+
+def compare_hand(best_hand, cur_hand):
+    if cur_hand[0] > best_hand[0]:
+        return cur_hand
+    elif best_hand[0] > cur_hand[0]:
+        return best_hand
+    else:
+        if cur_hand[1] > best_hand[1]:
+            return cur_hand
+        else:
+            #In this case, the two hands are the same, doesn't matter which hand gets returned
+            return best_hand
+    

@@ -2,5 +2,6 @@
 
 {% block content %}
     <p> Your hand is: {{player.hand_text}}, {{player.hand_num}} </p>
+    <p><a href="{%url 'poker_game_app:in_game' player.id %}">Start new round.</a></p>
         
 {% endblock content %}
