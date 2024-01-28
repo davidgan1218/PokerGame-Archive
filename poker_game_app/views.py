@@ -1,3 +1,7 @@
+from django.shortcuts import render
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Player, Game
@@ -8,9 +12,10 @@ import random, json
 
 
 
-
+@api_view(['GET'])
 def index(request):
     """The home page for poker_game_app"""
+    #return Response({"test": "test"})
     return render(request, 'poker_game_app/index.html')
 
 def get_deck():
@@ -47,6 +52,7 @@ def lobby(request):
 
         context = {'player': player}
         return render(request, 'poker_game_app/lobby.html', context)
+        #return Response({'player': "HI"})
     except Exception as e: 
         return HttpResponseServerError(f"An error occurred: {e}")
 

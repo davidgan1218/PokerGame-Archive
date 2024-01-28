@@ -34,6 +34,9 @@ INSTALLED_APPS = [
     #My apps
     'poker_game_app',
     'users',
+    'rest_framework',
+    'corsheaders',
+    'myapi',
 
 
     'django.contrib.admin',
@@ -52,7 +55,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'poker_game.urls'
 
@@ -129,3 +136,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #My settings
 LOGIN_URL = 'users:login'
+

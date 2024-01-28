@@ -196,6 +196,8 @@ def translate(num):
     else:
         return "High Card"
 
+
+#best_hand and cur_hand are in format ["hand_type (in number format)", "highest card", exact hand(in list form)], ex. ["Full House", 5, hand]
 def compare_hand(best_hand, cur_hand):
     if cur_hand[0] > best_hand[0]:
         return cur_hand

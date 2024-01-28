@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('', include('poker_game_app.urls')),
+    path('api/', include('myapi.urls'))
 ]
